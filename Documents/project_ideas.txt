@@ -1,0 +1,14 @@
+Likely Ideas:
+-Temple Run style (endless runner), 
+-Flappy Bird (endless game),
+-bomberman (local play),
+-Tekken/Fighting game (local play, really like this idea),
+-tank trouble (would be very simple),
+-general stealth game (if discovered instant fail/death, get from point to point),
+
+Less Likely Ideas:
+-metal gear solid (just really like the game and its mechanics),
+-polybridge (get cars across a player built bridge but a lot of physics needed),
+-Mario Party (local play, no networking)
+-Crash Team Racing/Mario Kart Style racer (player vs AI)
+-Crash Bandicoot (adventure style game, point to point adventure with enemies/obstacles)
