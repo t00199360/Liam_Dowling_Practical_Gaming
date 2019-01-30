@@ -8,7 +8,7 @@ public class playerControls : MonoBehaviour {
     // Use this for initialization
     void Start()
     {
-       spawnFighters();
+       
     }
 
     // Update is called once per frame
@@ -18,10 +18,7 @@ public class playerControls : MonoBehaviour {
 
     }
 
-    void spawnFighters()
-    {
-      
-    }
+    
 
 
 }
