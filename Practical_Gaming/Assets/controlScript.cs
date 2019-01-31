@@ -11,6 +11,14 @@ public class controlScript : MonoBehaviour
     bool isAirborne = false;
     bool touchingGround = true;
 
+    private CharacterController controller;
+
+    public float speed = 6.0f;
+    public float jumpSpeed = 8.0f;
+    public float gravity = 20.0f;
+
+    private Vector3 moveDirection = Vector3.zero;
+
     float movementSpeed = 8, jumpForce = 15;
 
     float timeForMove;
@@ -34,6 +42,12 @@ public class controlScript : MonoBehaviour
         acceleration = new Vector3(0, -9, 0);
         worldGravity = new Vector3(0, -9.8f, 0);
 
+        
+
+        controller = GetComponent<CharacterController>();
+
+        gameObject.transform.position = new Vector3(0, 5, 0);
+
         Movement movementMode;
 
         movementMode = Movement.walk;
@@ -42,6 +56,27 @@ public class controlScript : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
     {
+        if (controller.isGrounded)
+        {
+            //we are grounded, so recalculate
+            //move direction directly from axes
+
+            moveDirection = new Vector3(Input.GetAxis("Horizontal"), 0.0f, Input.GetAxis("Vertical"));
+            moveDirection = transform.TransformDirection(moveDirection);
+            moveDirection = moveDirection * movementSpeed;
+
+            if(Input.GetButton("Jump"))
+            {
+                moveDirection.y = jumpForce;
+            }
+        }
+
+        //Apply Gravity
+        moveDirection.y = moveDirection.y - (gravity * Time.deltaTime);
+
+        //move the controller
+        controller.Move(moveDirection * Time.deltaTime);
+
 		worldGravity = new Vector3(0,-12f,0);
 
         transform.position +=  movementSpeed * direction * Time.deltaTime;
