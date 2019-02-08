@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dac1b69c870d2ef4292dc6906a5a4b50, type: 3}
+  m_Name: AnimPro Pack Demo Data
+  m_EditorClassIdentifier: 
+  animations:
+  - {fileID: 7400000, guid: 532517e68da965e49ba8465ea132ab90, type: 3}
+  - {fileID: 7400000, guid: 82d9b088ce4a8394ebbdf109d0a3b331, type: 3}
+  - {fileID: 7400000, guid: dddba70f297663744bab4981577719b8, type: 3}
+  - {fileID: 7400000, guid: c87052d3ed051c84bb51543ec66f2ca5, type: 3}
+  - {fileID: 7400000, guid: f08c6dea1624cf24cb29218d0ca0f6da, type: 3}
+  - {fileID: 7400000, guid: f87956abc7a3d5045bf8a2e50c6c7bea, type: 3}
+  - {fileID: 7400000, guid: 921e69a46589a104cbb05498ebb6769c, type: 3}
+  - {fileID: 7400000, guid: 72a4a975530d2b04383837196f8d76ad, type: 3}
+  - {fileID: 7400000, guid: f3f0c03e68108e045bb11d995c0c7274, type: 3}
+  - {fileID: 7400000, guid: a7c00c35ef845b743b37e8447096aef6, type: 3}

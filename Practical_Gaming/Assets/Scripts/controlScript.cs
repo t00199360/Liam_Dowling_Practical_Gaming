@@ -23,7 +23,7 @@ public class controlScript : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        print("Hey I'm a cube");
+        print("Hey I'm player 1");
 
         onGround = false;
         jumpPressure = 0f;
@@ -39,6 +39,11 @@ public class controlScript : MonoBehaviour
         if (Input.GetKeyUp("a") || Input.GetKeyUp("d"))
         {
             animate.SetBool("IsRunning", false);
+        }
+
+        if(Input.GetKeyUp(KeyCode.Alpha1))
+        {
+            animate.SetBool("IsPunching",false);
         }
 
         print(jumpPressure);
@@ -107,6 +112,11 @@ public class controlScript : MonoBehaviour
             moveRight();
         }
 
+        if(shouldPunch())
+        {
+            punch();
+        }
+
         
     }       //end of should move
 
@@ -144,6 +154,16 @@ public class controlScript : MonoBehaviour
     private bool shouldBlock()
     {
         return Input.GetKey("c");                //i will need a dedicated block button now instead of walking away from the attacker
+    }
+
+    private bool shouldPunch()
+    {
+        return Input.GetKey(KeyCode.Alpha1);
+    }
+
+    private void punch()
+    {
+        animate.SetBool("IsPunching", true);
     }
 
 
