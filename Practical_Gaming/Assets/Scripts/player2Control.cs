@@ -153,7 +153,7 @@ public class player2Control : MonoBehaviour
 
     private bool shouldPunch()
     {
-        return Input.GetKey(KeyCode.Alpha1);
+        return Input.GetKey(KeyCode.Keypad1);
     }
 
     private void punch()
