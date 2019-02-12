@@ -41,6 +41,11 @@ public class player2Control : MonoBehaviour
             animate.SetBool("IsRunning", false);
         }
 
+        if(Input.GetKeyUp(KeyCode.Keypad1))
+        {
+            animate.SetBool("IsPunching", false);
+        }
+
         print(jumpPressure);
         if (onGround)
         {   //holding jump button
