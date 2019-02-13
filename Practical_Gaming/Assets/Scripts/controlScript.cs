@@ -12,18 +12,18 @@ public class controlScript : MonoBehaviour
     private float minJump;
     private float maxJumpPressure;
     private float verticalJumpvel = 0;
-    Quaternion targetRight = new Quaternion(0,45,0,1);
+    Quaternion targetRight = new Quaternion(0, 45, 0, 1);
     Vector3 targetLeft = new Vector3(-100, 0, 0);
 
 
     Animator animate;
     private Vector3 moveDirection = Vector3.zero;
 
- 
+
     // Use this for initialization
     void Start()
     {
-        print("Hey I'm player 1");
+        print("Hey I'm player 2");
 
         onGround = false;
         jumpPressure = 0f;
@@ -36,21 +36,27 @@ public class controlScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        shouldMove();
         if (Input.GetKeyUp("a") || Input.GetKeyUp("d"))
         {
             animate.SetBool("IsRunning", false);
         }
 
-        if(Input.GetKeyUp(KeyCode.Alpha1))
+        if (Input.GetKeyUp(KeyCode.Alpha1))
         {
-            animate.SetBool("IsPunching",false);
+            animate.SetBool("IsPunching", false);
+        }
+
+        if (Input.GetKeyUp(KeyCode.Alpha2))
+        {
+            animate.SetBool("IsKicking", false);
         }
 
         print(jumpPressure);
         if (onGround)
         {   //holding jump button
             print("On Ground");
-            shouldMove();
+            //shouldMove();
             if (Input.GetButton("Jump"))
             {
                 if (jumpPressure < maxJumpPressure)
@@ -80,7 +86,7 @@ public class controlScript : MonoBehaviour
         else
         {
             verticalJumpvel -= 9.8f * Time.deltaTime;
-            transform.position += verticalJumpvel * Vector3.up*Time.deltaTime;
+            transform.position += verticalJumpvel * Vector3.up * Time.deltaTime;
 
             onGround = checkOnGround();
         }
@@ -90,8 +96,8 @@ public class controlScript : MonoBehaviour
     {
         Ray feet = new Ray(transform.position, Vector3.down);
         RaycastHit info;
-        if (Physics.Raycast(feet,out info,(float)0.5))
-            return  info.collider.gameObject.tag == "ground";
+        if (Physics.Raycast(feet, out info, (float)0.5))
+            return info.collider.gameObject.tag == "ground";
 
         return false;
     }
@@ -111,19 +117,33 @@ public class controlScript : MonoBehaviour
         {
             moveRight();
         }
-
-        if(shouldPunch())
+        if (shouldPunch())
         {
             punch();
         }
 
-        
+        if (shouldKick())
+        {
+            kick();
+        }
+
+
     }       //end of should move
 
 
     /// <summary>
     /// Upon key press of [A] the selected character will move left
     /// </summary>
+
+    private bool shouldKick()
+    {
+        return Input.GetKey(KeyCode.Alpha2);
+    }
+
+    private void kick()
+    {
+        animate.SetBool("IsKicking", true);
+    }
 
     private bool shouldMoveLeft()
     {                                           //determines whether or not the player should move left or not
@@ -145,8 +165,8 @@ public class controlScript : MonoBehaviour
     }
     private void moveRight()
     {
-        transform.Translate(0f, 0f, moveSpeed * Input.GetAxis("Horizontal") * Time.deltaTime );
-        transform.rotation = Quaternion.Euler(new Vector3(0,90,0));
+        transform.Translate(0f, 0f, moveSpeed * Input.GetAxis("Horizontal") * Time.deltaTime);
+        transform.rotation = Quaternion.Euler(new Vector3(0, 90, 0));
         animate.SetBool("IsRunning", true);
     }
 
@@ -165,6 +185,5 @@ public class controlScript : MonoBehaviour
     {
         animate.SetBool("IsPunching", true);
     }
-
 
 }

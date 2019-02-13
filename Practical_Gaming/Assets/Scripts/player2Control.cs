@@ -36,6 +36,7 @@ public class player2Control : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        shouldMove();
         if (Input.GetKeyUp(KeyCode.LeftArrow) || Input.GetKeyUp(KeyCode.RightArrow))
         {
             animate.SetBool("IsRunning", false);
@@ -46,11 +47,16 @@ public class player2Control : MonoBehaviour
             animate.SetBool("IsPunching", false);
         }
 
+        if (Input.GetKeyUp(KeyCode.Keypad2))
+        {
+            animate.SetBool("IsKicking", false);
+        }
+
         print(jumpPressure);
         if (onGround)
         {   //holding jump button
             print("On Ground");
-            shouldMove();
+            //shouldMove();
             if (Input.GetKey(KeyCode.Keypad0))
             {
                 if (jumpPressure < maxJumpPressure)
@@ -116,6 +122,10 @@ public class player2Control : MonoBehaviour
             punch();
         }
 
+        if (shouldKick())
+        {
+            kick();
+        }
 
 
     }       //end of should move
@@ -124,6 +134,16 @@ public class player2Control : MonoBehaviour
     /// <summary>
     /// Upon key press of [A] the selected character will move left
     /// </summary>
+
+    private bool shouldKick()
+    {
+        return Input.GetKey(KeyCode.Keypad2);
+    }
+
+    private void kick()
+    {
+        animate.SetBool("IsKicking", true);
+    }
 
     private bool shouldMoveLeft()
     {                                           //determines whether or not the player should move left or not
