@@ -218,8 +218,8 @@ ModelImporter:
     - serializedVersion: 16
       name: WeaponShoot
       takeName: Unity_Weapon_Shoot_tk03
-      firstFrame: 35
-      lastFrame: 76
+      firstFrame: 36
+      lastFrame: 48
       wrapMode: 0
       orientationOffsetY: 0
       level: 0

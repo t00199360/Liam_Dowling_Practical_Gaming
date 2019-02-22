@@ -5,7 +5,10 @@ using UnityEngine;
 
 public class controlScript : MonoBehaviour
 {
-
+    //public string fighterName;
+    //public static float MaxHealth = 100f;
+    //public float health = MaxHealth;
+    //public controlScript opponent;
     public float moveSpeed = 10f;
     private bool onGround;
     private float jumpPressure;
@@ -16,13 +19,14 @@ public class controlScript : MonoBehaviour
     Vector3 targetLeft = new Vector3(-100, 0, 0);
 
 
-    Animator animate;
+    protected Animator animate;
     private Vector3 moveDirection = Vector3.zero;
 
 
     // Use this for initialization
     void Start()
     {
+        animate = GetComponent<Animator>();
         print("Hey I'm player 2");
 
         onGround = false;
@@ -30,17 +34,28 @@ public class controlScript : MonoBehaviour
         minJump = 2f;
         maxJumpPressure = 7f;
 
-        animate = GetComponent<Animator>();
+        ////animate = GetComponent<Animator>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        //animate.SetFloat("health", healthPercent);
+
+        //if(opponent != null)
+        //{
+        //    animate.SetFloat("opponenet_health", opponent.healthPercent);
+        //}
+        //else
+        //{
+        //    animate.SetFloat("opponent_health", 1);
+        //}
         //Vector3 fwd = transform.TransformDirection(Vector3.forward);
 
         //if (Physics.Raycast(transform.position, fwd, 1))
         //    print("There is something in front of the object!");
        
+
         //Physics.CheckSphere
         shouldMove();
         if (Input.GetKeyUp("a") || Input.GetKeyUp("d"))
@@ -97,6 +112,14 @@ public class controlScript : MonoBehaviour
             onGround = checkOnGround();
         }
     }
+
+    //public float healthPercent
+    //{
+    //    get
+    //    {
+    //        return health / MaxHealth;
+    //    }
+    //}
 
     private bool checkOnGround()
     {
@@ -190,6 +213,29 @@ public class controlScript : MonoBehaviour
     private void punch()
     {
         animate.SetBool("IsPunching", true);
+        Collision punch = new Collision();
+        OnCollisionEnter(punch);
     }
+
+
+    private void OnTriggerEnter(Collider other)
+    {
+        Debug.Log(other.gameObject.layer);
+    }
+
+    void OnCollisionEnter(Collision collision)
+    {
+        Debug.Log(collision.gameObject.layer);
+        //if (collision.gameObject.tag == "Player2")
+        //{
+        //    Debug.Log("A punch was executed");
+        //}
+    }
+
+    //void OnTriggerEnter(Collider other)
+    //{
+    //    if (other.gameObject.tag == "Player2")
+    //        Debug.Log("You punched player 2");
+    //}
 
 }
