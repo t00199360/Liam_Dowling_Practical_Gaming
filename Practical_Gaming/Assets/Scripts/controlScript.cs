@@ -15,12 +15,14 @@ public class controlScript : MonoBehaviour
     private float minJump;
     private float maxJumpPressure;
     private float verticalJumpvel = 0;
-    Quaternion targetRight = new Quaternion(0, 45, 0, 1);
-    Vector3 targetLeft = new Vector3(-100, 0, 0);
+   // Quaternion targetRight = new Quaternion(0, 45, 0, 1);
+   // Vector3 targetLeft = new Vector3(-100, 0, 0);
+
+    public Collider[] attackHitBoxes;                   //help reference: https://www.youtube.com/watch?v=mvVM1RB4HXk
 
 
     protected Animator animate;
-    private Vector3 moveDirection = Vector3.zero;
+   // private Vector3 moveDirection = Vector3.zero;
 
 
     // Use this for initialization
@@ -40,23 +42,6 @@ public class controlScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //animate.SetFloat("health", healthPercent);
-
-        //if(opponent != null)
-        //{
-        //    animate.SetFloat("opponenet_health", opponent.healthPercent);
-        //}
-        //else
-        //{
-        //    animate.SetFloat("opponent_health", 1);
-        //}
-        //Vector3 fwd = transform.TransformDirection(Vector3.forward);
-
-        //if (Physics.Raycast(transform.position, fwd, 1))
-        //    print("There is something in front of the object!");
-       
-
-        //Physics.CheckSphere
         shouldMove();
         if (Input.GetKeyUp("a") || Input.GetKeyUp("d"))
         {
@@ -72,7 +57,7 @@ public class controlScript : MonoBehaviour
         {
             animate.SetBool("IsKicking", false);
         }
-
+        
         print(jumpPressure);
         if (onGround)
         {   //holding jump button
@@ -113,13 +98,6 @@ public class controlScript : MonoBehaviour
         }
     }
 
-    //public float healthPercent
-    //{
-    //    get
-    //    {
-    //        return health / MaxHealth;
-    //    }
-    //}
 
     private bool checkOnGround()
     {
@@ -171,6 +149,7 @@ public class controlScript : MonoBehaviour
 
     private void kick()
     {
+        LaunchAttack(attackHitBoxes[0]);
         animate.SetBool("IsKicking", true);
     }
 
@@ -212,24 +191,38 @@ public class controlScript : MonoBehaviour
 
     private void punch()
     {
+        LaunchAttack(attackHitBoxes[0]);
         animate.SetBool("IsPunching", true);
-        Collision punch = new Collision();
-        OnCollisionEnter(punch);
+      //  Collision punch = new Collision();
+       // OnCollisionEnter(punch);
     }
 
 
-    private void OnTriggerEnter(Collider other)
-    {
-        Debug.Log(other.gameObject.layer);
-    }
+    //private void OnTriggerEnter(Collider other)
+    //{
+    //    Debug.Log(other.gameObject.layer);
+    //}
 
-    void OnCollisionEnter(Collision collision)
+    //void OnCollisionEnter(Collision collision)
+    //{
+    //    Debug.Log(collision.gameObject.layer);
+    //    //if (collision.gameObject.tag == "Player2")
+    //    //{
+    //    //    Debug.Log("A punch was executed");
+    //    //}
+    //}
+
+    private void LaunchAttack(Collider col)
     {
-        Debug.Log(collision.gameObject.layer);
-        //if (collision.gameObject.tag == "Player2")
-        //{
-        //    Debug.Log("A punch was executed");
-        //}
+        Collider[] cols = Physics.OverlapBox(col.bounds.center, col.bounds.extents, col.transform.rotation, LayerMask.GetMask("Hitbox"));
+        foreach (Collider c in cols)
+        {
+            if (c.transform.parent.parent == transform)
+                continue;
+
+            Debug.Log(c.name);
+        }
+            
     }
 
     //void OnTriggerEnter(Collider other)

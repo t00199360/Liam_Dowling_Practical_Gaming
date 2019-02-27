@@ -12,12 +12,12 @@ public class player2Control : MonoBehaviour
     private float minJump;
     private float maxJumpPressure;
     private float verticalJumpvel = 0;
-    Quaternion targetRight = new Quaternion(0, 45, 0, 1);
-    Vector3 targetLeft = new Vector3(-100, 0, 0);
+  //  Quaternion targetRight = new Quaternion(0, 45, 0, 1);
+  //  Vector3 targetLeft = new Vector3(-100, 0, 0);
 
 
     Animator animate;
-    private Vector3 moveDirection = Vector3.zero;
+   // private Vector3 moveDirection = Vector3.zero;
 
 
     // Use this for initialization
@@ -37,6 +37,7 @@ public class player2Control : MonoBehaviour
     void Update()
     {
         shouldMove();
+
         if (Input.GetKeyUp(KeyCode.LeftArrow) || Input.GetKeyUp(KeyCode.RightArrow))
         {
             animate.SetBool("IsRunning", false);
@@ -152,9 +153,10 @@ public class player2Control : MonoBehaviour
 
     private void moveLeft()
     {
+        animate.SetBool("IsRunning", true);
         transform.Translate(0f, 0f, moveSpeed * Input.GetAxis("HorizontalP2") * Time.deltaTime * -1);
         transform.rotation = Quaternion.Euler(new Vector3(0, 270, 0));
-        animate.SetBool("IsRunning", true);
+        
     }
     /// <summary>
     /// Upon key press of [D] the selected character will move right
