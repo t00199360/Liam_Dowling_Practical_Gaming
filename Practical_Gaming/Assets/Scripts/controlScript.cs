@@ -218,9 +218,41 @@ public class controlScript : MonoBehaviour
         foreach (Collider c in cols)
         {
             if (c.transform.parent.parent == transform)
-                continue;
+            continue;
 
-            Debug.Log(c.name);
+            float damage = 0;
+            switch(c.name)
+            {
+                case "Player2_Head":
+                    damage = 25;
+                    break;
+
+                case "Player2_Torso":
+                    damage = 10;
+                    break;
+
+                case "Player2_LeftLeg":
+                    damage = 5;
+                    break;
+
+                case "Player2_RightLeg":
+                    damage = 5;
+                    break;
+
+                case "Player2_LeftArm":
+                    damage = 5;
+                    break;
+
+                case "Player2_RightArm":
+                    damage = 5;
+                    break;
+
+                default:
+                    Debug.Log("Unable to identify body part, make sure the name matches the switch case");
+                    break;
+            }
+
+            c.SendMessageUpwards("TakeDamage",damage);
         }
             
     }
