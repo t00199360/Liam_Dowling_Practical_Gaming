@@ -12,19 +12,20 @@ public class player2Control : MonoBehaviour
     private float minJump;
     private float maxJumpPressure;
     private float verticalJumpvel = 0;
-  //  Quaternion targetRight = new Quaternion(0, 45, 0, 1);
-  //  Vector3 targetLeft = new Vector3(-100, 0, 0);
-
+    //  Quaternion targetRight = new Quaternion(0, 45, 0, 1);
+    //  Vector3 targetLeft = new Vector3(-100, 0, 0);
+    
+    public Collider[] attackHitBoxes;
 
     Animator animate;
-   // private Vector3 moveDirection = Vector3.zero;
+    // private Vector3 moveDirection = Vector3.zero;
 
 
     // Use this for initialization
     void Start()
     {
         print("Hey I'm player 2");
-        
+
         onGround = false;
         jumpPressure = 0f;
         minJump = 2f;
@@ -43,7 +44,7 @@ public class player2Control : MonoBehaviour
             animate.SetBool("IsRunning", false);
         }
 
-        if(Input.GetKeyUp(KeyCode.Keypad1))
+        if (Input.GetKeyUp(KeyCode.Keypad1))
         {
             animate.SetBool("IsPunching", false);
         }
@@ -143,6 +144,7 @@ public class player2Control : MonoBehaviour
 
     private void kick()
     {
+        LaunchAttack(attackHitBoxes[1]);
         animate.SetBool("IsKicking", true);
     }
 
@@ -156,7 +158,7 @@ public class player2Control : MonoBehaviour
         animate.SetBool("IsRunning", true);
         transform.Translate(0f, 0f, moveSpeed * Input.GetAxis("HorizontalP2") * Time.deltaTime * -1);
         transform.rotation = Quaternion.Euler(new Vector3(0, 270, 0));
-        
+
     }
     /// <summary>
     /// Upon key press of [D] the selected character will move right
@@ -185,7 +187,55 @@ public class player2Control : MonoBehaviour
 
     private void punch()
     {
+        LaunchAttack(attackHitBoxes[0]);
         animate.SetBool("IsPunching", true);
     }
 
+
+    private void LaunchAttack(Collider col)
+    {
+        Collider[] cols = Physics.OverlapBox(col.bounds.center, col.bounds.extents, col.transform.rotation, LayerMask.GetMask("Hitbox"));
+        //foreach (Collider c in cols)
+        //    Debug.Log(c.name);
+
+        foreach (Collider c in cols)
+        {
+            if (c.transform.parent.parent == transform)
+                continue;
+
+            float damage = 0;
+            switch (c.name)
+            {
+               case "char_robotGuard_Head":
+                    damage = 25;
+                    break;
+
+                case "char_robotGuard_Hips":
+                    damage = 10;
+                    break;
+
+                case "char_robotGuard_LeftUpLeg":
+                    damage = 5;
+                    break;
+
+                case "char_robotGuard_RightUpLeg":
+                    damage = 5;
+                    break;
+
+                case "char_robotGuard_LeftShoulder":
+                    damage = 5;
+                    break;
+
+                case "char_robotGuard_RightShoulder":
+                    damage = 5;
+                    break;
+
+                default:
+                    Debug.Log("Unable to identify body part, make sure the name matches the switch case");
+                    break;
+            }
+
+            c.SendMessageUpwards("TakeDamage", damage);
+        }
+    }
 }

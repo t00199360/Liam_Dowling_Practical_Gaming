@@ -149,7 +149,7 @@ public class controlScript : MonoBehaviour
 
     private void kick()
     {
-        LaunchAttack(attackHitBoxes[0]);
+        LaunchAttack(attackHitBoxes[1]);
         animate.SetBool("IsKicking", true);
     }
 
@@ -215,35 +215,38 @@ public class controlScript : MonoBehaviour
     private void LaunchAttack(Collider col)
     {
         Collider[] cols = Physics.OverlapBox(col.bounds.center, col.bounds.extents, col.transform.rotation, LayerMask.GetMask("Hitbox"));
+        //foreach (Collider c in cols)
+        //    Debug.Log(c.name);
+
         foreach (Collider c in cols)
         {
             if (c.transform.parent.parent == transform)
-            continue;
+                continue;
 
             float damage = 0;
-            switch(c.name)
+            switch (c.name)
             {
-                case "Player2_Head":
+                case "char_robotGuard_Head":
                     damage = 25;
                     break;
 
-                case "Player2_Torso":
+                case "char_robotGuard_Hips":
                     damage = 10;
                     break;
 
-                case "Player2_LeftLeg":
+                case "char_robotGuard_LeftUpLeg":
                     damage = 5;
                     break;
 
-                case "Player2_RightLeg":
+                case "char_robotGuard_RightUpLeg":
                     damage = 5;
                     break;
 
-                case "Player2_LeftArm":
+                case "char_robotGuard_LeftShoulder":
                     damage = 5;
                     break;
 
-                case "Player2_RightArm":
+                case "char_robotGuard_RightShoulder":
                     damage = 5;
                     break;
 
@@ -252,15 +255,7 @@ public class controlScript : MonoBehaviour
                     break;
             }
 
-            c.SendMessageUpwards("TakeDamage",damage);
+            c.SendMessageUpwards("TakeDamage", damage);
         }
-            
     }
-
-    //void OnTriggerEnter(Collider other)
-    //{
-    //    if (other.gameObject.tag == "Player2")
-    //        Debug.Log("You punched player 2");
-    //}
-
 }
