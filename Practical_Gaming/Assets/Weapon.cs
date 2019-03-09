@@ -18,7 +18,6 @@ public class Weapon : MonoBehaviour {
 
     void Shoot()
     {
-
         Instantiate(bulletPrefab,firepoint.position,firepoint.rotation);
         //  shooting logic
     }
