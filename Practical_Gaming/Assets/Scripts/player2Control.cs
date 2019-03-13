@@ -12,9 +12,12 @@ public class player2Control : MonoBehaviour
     private float minJump;
     private float maxJumpPressure;
     private float verticalJumpvel = 0;
+
+    public float ColliderTimeout = 0.8f;
+
     //  Quaternion targetRight = new Quaternion(0, 45, 0, 1);
     //  Vector3 targetLeft = new Vector3(-100, 0, 0);
-    
+
     public Collider[] attackHitBoxes;
 
     Animator animate;
@@ -174,7 +177,6 @@ public class player2Control : MonoBehaviour
         animate.SetBool("IsRunning", true);
     }
 
-
     private bool shouldBlock()
     {
         return Input.GetKey(KeyCode.DownArrow);                //i will need a dedicated block button now instead of walking away from the attacker
@@ -208,30 +210,44 @@ public class player2Control : MonoBehaviour
             {
                case "char_robotGuard_Head":
                     damage = 25;
+
+                 
                     break;
 
                 case "char_robotGuard_Hips":
                     damage = 10;
+
+                   
                     break;
 
                 case "char_robotGuard_LeftUpLeg":
                     damage = 5;
+
+               
                     break;
 
                 case "char_robotGuard_RightUpLeg":
                     damage = 5;
+
+                  
                     break;
 
                 case "char_robotGuard_LeftShoulder":
                     damage = 5;
+
+                  
                     break;
 
                 case "char_robotGuard_RightShoulder":
                     damage = 5;
+
+                   
                     break;
 
                 default:
                     Debug.Log("Unable to identify body part, make sure the name matches the switch case");
+                    damage = 5;
+                    
                     break;
             }
 
