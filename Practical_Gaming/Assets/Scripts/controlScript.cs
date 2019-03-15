@@ -91,8 +91,9 @@ public class controlScript : MonoBehaviour
         }
         else
         {
-            verticalJumpvel -= 9.8f * Time.deltaTime;
-            transform.position += verticalJumpvel * Vector3.up * Time.deltaTime;
+            // verticalJumpvel -= 9.8f * Time.deltaTime;
+            // transform.position += verticalJumpvel * Vector3.up * Time.deltaTime;
+            gameObject.GetComponent<Rigidbody>().AddForce(Vector3.up * verticalJumpvel, ForceMode.Impulse);
 
             onGround = checkOnGround();
         }
@@ -105,7 +106,7 @@ public class controlScript : MonoBehaviour
         RaycastHit info;
         if (Physics.Raycast(feet, out info, (float)0.5))
             return info.collider.gameObject.tag == "ground";
-
+        Debug.Log("I am here");
         return false;
     }
 
@@ -220,7 +221,7 @@ public class controlScript : MonoBehaviour
 
         foreach (Collider c in cols)
         {
-            if (c.transform.parent.parent == transform)
+            if (c.transform.transform == transform)
                 continue;
 
             float damage = 0;
