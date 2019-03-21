@@ -12,8 +12,9 @@ public class player2Control : MonoBehaviour
     private float minJump;
     private float maxJumpPressure;
     private float verticalJumpvel = 0;
-
+    private Boolean isKeysEnabled = true;
     public float ColliderTimeout = 0.8f;
+    public float jumpTimer = 5f;
 
     //  Quaternion targetRight = new Quaternion(0, 45, 0, 1);
     //  Vector3 targetLeft = new Vector3(-100, 0, 0);
@@ -40,6 +41,8 @@ public class player2Control : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Debug.DrawRay(transform.position, Vector3.down * 0.05f, Color.cyan);
+        Debug.Log(jumpTimer + " I am the jump timer " + " Is Keys " + isKeysEnabled + " Is onGround? " + onGround);
         shouldMove();
 
         if (Input.GetKeyUp(KeyCode.LeftArrow) || Input.GetKeyUp(KeyCode.RightArrow))
@@ -64,16 +67,20 @@ public class player2Control : MonoBehaviour
             //shouldMove();
             if (Input.GetKey(KeyCode.Keypad0))
             {
-                if (jumpPressure < maxJumpPressure)
+                if(isKeysEnabled)
                 {
-                    jumpPressure += Time.deltaTime * 10f;
+                    if (jumpPressure < maxJumpPressure)
+                    {
+                        jumpPressure += Time.deltaTime * 10f;
+                    }
+                    else
+                    {
+                        jumpPressure = maxJumpPressure;
+                    }
+                    //print(jumpPressure);
+                    //Debug.Log(jumpPressure);
                 }
-                else
-                {
-                    jumpPressure = maxJumpPressure;
-                }
-                print(jumpPressure);
-                Debug.Log(jumpPressure);
+               
             }
             //not holding jump button
             else
@@ -85,14 +92,23 @@ public class player2Control : MonoBehaviour
                     verticalJumpvel = jumpPressure;
                     jumpPressure = 0f;
                     onGround = false;
+                    jumpTimer -= Time.deltaTime;
+                    isKeysEnabled = false;
                 }
+                if (onGround)
+                {
+                    jumpTimer = 4f;
+                    isKeysEnabled = true;
+                    //Debug.log(onGround);
+                }
+                    
             }
         }
         else
         {
-            verticalJumpvel -= 9.8f * Time.deltaTime;
-            transform.position += verticalJumpvel * Vector3.up * Time.deltaTime;
-
+            // verticalJumpvel -= 9.8f * Time.deltaTime;
+            // transform.position += verticalJumpvel * Vector3.up * Time.deltaTime;
+            gameObject.GetComponent<Rigidbody>().AddForce(Vector3.up * verticalJumpvel, ForceMode.Impulse);
             onGround = checkOnGround();
         }
     }
@@ -102,7 +118,11 @@ public class player2Control : MonoBehaviour
         Ray feet = new Ray(transform.position, Vector3.down);
         RaycastHit info;
         if (Physics.Raycast(feet, out info, (float)0.5))
+        {
+            onGround = true;
             return info.collider.gameObject.tag == "ground";
+        }
+            
 
         return false;
     }
