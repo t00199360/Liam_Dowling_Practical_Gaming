@@ -5,35 +5,47 @@ using UnityEngine;
 
 public class player2Control : MonoBehaviour
 {
+    enum JumpState { OnGround, Charging, GoingUp, Falling}
+
+    JumpState iamCurrently = JumpState.OnGround;
+    float _jumpPressure = 0;
+    float MAX_PRESSURE = 1;
+    private float MIN_JUMP_PRESSURE = 0.1F;
+    private float gravity = 1f;
+
+    public float jumpPressure { get { return _jumpPressure; } private set { _jumpPressure = Mathf.Clamp(value, 0, MAX_PRESSURE); } }
 
     public float moveSpeed = 10f;
     private bool onGround;
-    private float jumpPressure;
-    private float minJump;
-    private float maxJumpPressure;
+
+
+
     private float verticalJumpvel = 0;
     private Boolean isKeysEnabled = true;
     public float ColliderTimeout = 0.8f;
-    public float jumpTimer = 5f;
+    public float jumpTimer = 2f;
 
     //  Quaternion targetRight = new Quaternion(0, 45, 0, 1);
     //  Vector3 targetLeft = new Vector3(-100, 0, 0);
 
     public Collider[] attackHitBoxes;
 
-    Animator animate;
+    protected Animator animate;
+
+    private float defaultHeightForCharacterOnGround = 0;
+
     // private Vector3 moveDirection = Vector3.zero;
 
 
     // Use this for initialization
     void Start()
     {
-        print("Hey I'm player 2");
+       // print("Hey I'm player 2");
 
         onGround = false;
         jumpPressure = 0f;
-        minJump = 2f;
-        maxJumpPressure = 7f;
+ 
+
 
         animate = GetComponent<Animator>();
     }
@@ -41,6 +53,7 @@ public class player2Control : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //checkOnGround();
         Debug.DrawRay(transform.position, Vector3.down * 0.05f, Color.cyan);
         Debug.Log(jumpTimer + " I am the jump timer " + " Is Keys " + isKeysEnabled + " Is onGround? " + onGround);
         shouldMove();
@@ -60,57 +73,151 @@ public class player2Control : MonoBehaviour
             animate.SetBool("IsKicking", false);
         }
 
-        print(jumpPressure);
-        if (onGround)
-        {   //holding jump button
-            print("On Ground");
-            //shouldMove();
-            if (Input.GetKey(KeyCode.Keypad0))
-            {
-                if(isKeysEnabled)
-                {
-                    if (jumpPressure < maxJumpPressure)
-                    {
-                        jumpPressure += Time.deltaTime * 10f;
-                    }
-                    else
-                    {
-                        jumpPressure = maxJumpPressure;
-                    }
-                    //print(jumpPressure);
-                    //Debug.Log(jumpPressure);
-                }
-               
-            }
-            //not holding jump button
-            else
-            {
-                //jump
-                if (jumpPressure > 0f)
-                {
-                    jumpPressure = jumpPressure + minJump;
-                    verticalJumpvel = jumpPressure;
-                    jumpPressure = 0f;
-                    onGround = false;
-                    jumpTimer -= Time.deltaTime;
-                    isKeysEnabled = false;
-                }
-                if (onGround)
-                {
-                    jumpTimer = 4f;
-                    isKeysEnabled = true;
-                    //Debug.log(onGround);
-                }
-                    
-            }
-        }
-        else
+        switch (iamCurrently)
+
         {
-            // verticalJumpvel -= 9.8f * Time.deltaTime;
-            // transform.position += verticalJumpvel * Vector3.up * Time.deltaTime;
-            gameObject.GetComponent<Rigidbody>().AddForce(Vector3.up * verticalJumpvel, ForceMode.Impulse);
-            onGround = checkOnGround();
+
+            case JumpState.OnGround:
+
+                if (Input.GetKey(KeyCode.Keypad0))
+                {
+                    iamCurrently = JumpState.Charging;
+                    jumpPressure = 0;
+                }
+
+
+
+                break;
+
+            case JumpState.Charging:
+
+                if (Input.GetKey(KeyCode.Keypad0))
+                {
+                    jumpPressure += Time.deltaTime;
+
+                }
+
+                else
+                {
+                    iamCurrently = JumpState.GoingUp;
+                    if (jumpPressure < MIN_JUMP_PRESSURE) jumpPressure = MIN_JUMP_PRESSURE;
+                    verticalJumpvel = getStartingJumpVerticalVelocityFor(jumpPressure);
+
+                }
+
+                    break;
+
+            case JumpState.GoingUp:
+
+                verticalJumpvel -= gravity * Time.deltaTime;
+                transform.position += verticalJumpvel * Vector3.up;
+                if (verticalJumpvel < 0)
+                    iamCurrently = JumpState.Falling;
+
+
+
+
+
+
+                break;
+
+
+            case JumpState.Falling:
+
+                verticalJumpvel -= gravity * Time.deltaTime;
+                transform.position += verticalJumpvel * Vector3.up;
+
+                if (checkOnGround())
+                {
+                    iamCurrently = JumpState.OnGround;
+                    transform.position = new Vector3(transform.position.x, defaultHeightForCharacterOnGround, transform.position.z);
+                }
+
+
+
+                break;
+
+
+
+
+
+
+
+
+
         }
+
+        ////print(jumpPressure);
+        //if (onGround)
+        //{   
+        //    print("On Ground");
+            
+        //    if (Input.GetKey(KeyCode.Keypad0))      //holding jump button
+        //    {
+        //        //jumpTimeWait();
+        //        if(isKeysEnabled)
+        //        {
+                    
+        //            if (jumpPressure < maxJumpPressure)
+        //            {
+        //                jumpPressure += Time.deltaTime * 10f;
+        //            }
+        //            else
+        //            {
+        //                jumpPressure = maxJumpPressure;
+        //            }
+        //            //print(jumpPressure);
+        //            //Debug.Log(jumpPressure);
+        //        }
+               
+        //    }
+        //    //not holding jump button
+        //    else
+        //    {
+                
+        //        //jump
+        //        if (jumpPressure > 0f)
+        //        {
+        //            jumpPressure = jumpPressure + minJump;
+        //            verticalJumpvel = jumpPressure;
+        //            jumpPressure = 0f;
+        //            onGround = false;
+                    
+        //            isKeysEnabled = false;
+                    
+        //        }
+        //        //if (onGround)
+        //        // {
+        //        //jumpTimer = 4f;
+        //        //isKeysEnabled = true;
+        //        // float jumpWait = 5.0f;                                               //jump attempt that didnt go very well
+        //        //jumpWait -= Time.deltaTime;
+        //        jumpTimeWait();
+        //        //jumpTimer -= Time.deltaTime;
+        //        //if (jumpTimer <= 0)
+        //        //{
+        //        //    Debug.Log("The jump wait has expired");
+        //        //    isKeysEnabled = true;
+        //        //    jumpTimer = 2f;
+        //        //}
+        //        //jumpTimeWait();
+        //        //Debug.log(onGround);
+        //        //}
+                    
+        //    }
+        //}
+        //else
+        //{
+        //    // verticalJumpvel -= 9.8f * Time.deltaTime;
+        //    // transform.position += verticalJumpvel * Vector3.up * Time.deltaTime;
+        //    gameObject.GetComponent<Rigidbody>().AddForce(Vector3.up * verticalJumpvel, ForceMode.Impulse);
+        //    onGround = checkOnGround();
+        //}
+    }
+
+    private float getStartingJumpVerticalVelocityFor(float jumpPressure)
+    {
+        return jumpPressure * 0.5F;
     }
 
     private bool checkOnGround()
@@ -119,13 +226,29 @@ public class player2Control : MonoBehaviour
         RaycastHit info;
         if (Physics.Raycast(feet, out info, (float)0.5))
         {
-            onGround = true;
+            if(info.collider.gameObject.tag=="ground")
+            {
+                onGround = true;
+            }
+           
+
             return info.collider.gameObject.tag == "ground";
         }
             
 
         return false;
     }
+
+    //public void jumpTimeWait()
+    //{
+    //    jumpTimer -= Time.deltaTime;
+    //    if (jumpTimer <= 0)
+    //    {
+    //        Debug.Log("The jump wait has expired");
+    //        isKeysEnabled = true;
+    //        jumpTimer = 2f;
+    //    }
+    //}
 
     /// <summary>
     /// Upon key press of [A] the selected character will move left

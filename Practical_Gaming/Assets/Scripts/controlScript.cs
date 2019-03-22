@@ -5,36 +5,45 @@ using UnityEngine;
 
 public class controlScript : MonoBehaviour
 {
-    //public string fighterName;
-    //public static float MaxHealth = 100f;
-    //public float health = MaxHealth;
-    //public controlScript opponent;
+    enum JumpState { OnGround, Charging, GoingUp, Falling }
+
+    JumpState iamCurrently = JumpState.OnGround;
+    float _jumpPressure = 0;
+    float MAX_PRESSURE = 1;
+    private float MIN_JUMP_PRESSURE = 0.1F;
+    private float gravity = 1f;
+
+    public float jumpPressure { get { return _jumpPressure; } private set { _jumpPressure = Mathf.Clamp(value, 0, MAX_PRESSURE); } }
+
     public float moveSpeed = 10f;
     private bool onGround;
-    private float jumpPressure;
-    private float minJump;
-    private float maxJumpPressure;
+
+
+
     private float verticalJumpvel = 0;
-   // Quaternion targetRight = new Quaternion(0, 45, 0, 1);
-   // Vector3 targetLeft = new Vector3(-100, 0, 0);
+    private Boolean isKeysEnabled = true;
+    public float ColliderTimeout = 0.8f;
+    public float jumpTimer = 2f;
 
-    public Collider[] attackHitBoxes;                   //help reference: https://www.youtube.com/watch?v=mvVM1RB4HXk
+    //  Quaternion targetRight = new Quaternion(0, 45, 0, 1);
+    //  Vector3 targetLeft = new Vector3(-100, 0, 0);
 
+    public Collider[] attackHitBoxes;
 
     protected Animator animate;
-   // private Vector3 moveDirection = Vector3.zero;
 
+    private float defaultHeightForCharacterOnGround = 0;
+
+    // private Vector3 moveDirection = Vector3.zero;
 
     // Use this for initialization
     void Start()
     {
         animate = GetComponent<Animator>();
-        print("Hey I'm player 2");
 
         onGround = false;
         jumpPressure = 0f;
-        minJump = 2f;
-        maxJumpPressure = 7f;
+       
 
         ////animate = GetComponent<Animator>();
     }
@@ -42,61 +51,150 @@ public class controlScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //checkOnGround();
+        Debug.DrawRay(transform.position, Vector3.down * 0.05f, Color.cyan);
+        Debug.Log(jumpTimer + " I am the jump timer " + " Is Keys " + isKeysEnabled + " Is onGround? " + onGround);
         shouldMove();
-        if (Input.GetKeyUp("a") || Input.GetKeyUp("d"))
+
+        if (Input.GetKeyUp(KeyCode.LeftArrow) || Input.GetKeyUp(KeyCode.RightArrow))
         {
             animate.SetBool("IsRunning", false);
         }
 
-        if (Input.GetKeyUp(KeyCode.Alpha1))
+        if (Input.GetKeyUp(KeyCode.Keypad1))
         {
             animate.SetBool("IsPunching", false);
         }
 
-        if (Input.GetKeyUp(KeyCode.Alpha2))
+        if (Input.GetKeyUp(KeyCode.Keypad2))
         {
             animate.SetBool("IsKicking", false);
         }
-        
-        print(jumpPressure);
-        if (onGround)
-        {   //holding jump button
-            print("On Ground");
-            //shouldMove();
-            if (Input.GetButton("Jump"))
-            {
-                if (jumpPressure < maxJumpPressure)
+
+        switch (iamCurrently)
+
+        {
+
+            case JumpState.OnGround:
+
+                if (Input.GetKey(KeyCode.Space))
                 {
-                    jumpPressure += Time.deltaTime * 10f;
+                    iamCurrently = JumpState.Charging;
+                    jumpPressure = 0;
                 }
+
+
+
+                break;
+
+            case JumpState.Charging:
+
+                if (Input.GetKey(KeyCode.Space))
+                {
+                    jumpPressure += Time.deltaTime;
+
+                }
+
                 else
                 {
-                    jumpPressure = maxJumpPressure;
-                }
-                print(jumpPressure);
-                Debug.Log(jumpPressure);
-            }
-            //not holding jump button
-            else
-            {
-                //jump
-                if (jumpPressure > 0f)
-                {
-                    jumpPressure = jumpPressure + minJump;
-                    verticalJumpvel = jumpPressure;
-                    jumpPressure = 0f;
-                    onGround = false;
-                }
-            }
-        }
-        else
-        {
-            // verticalJumpvel -= 9.8f * Time.deltaTime;
-            // transform.position += verticalJumpvel * Vector3.up * Time.deltaTime;
-            gameObject.GetComponent<Rigidbody>().AddForce(Vector3.up * verticalJumpvel, ForceMode.Impulse);
+                    iamCurrently = JumpState.GoingUp;
+                    if (jumpPressure < MIN_JUMP_PRESSURE) jumpPressure = MIN_JUMP_PRESSURE;
+                    verticalJumpvel = getStartingJumpVerticalVelocityFor(jumpPressure);
 
-            onGround = checkOnGround();
+                }
+
+                break;
+
+            case JumpState.GoingUp:
+
+                verticalJumpvel -= gravity * Time.deltaTime;
+                transform.position += verticalJumpvel * Vector3.up;
+                if (verticalJumpvel < 0)
+                    iamCurrently = JumpState.Falling;
+
+
+
+
+
+
+                break;
+
+
+            case JumpState.Falling:
+
+                verticalJumpvel -= gravity * Time.deltaTime;
+                transform.position += verticalJumpvel * Vector3.up;
+
+                if (checkOnGround())
+                {
+                    iamCurrently = JumpState.OnGround;
+                    transform.position = new Vector3(transform.position.x, defaultHeightForCharacterOnGround, transform.position.z);
+                }
+
+
+
+                break;
+
+
+
+
+
+
+
+
+
         }
+
+        ////print(jumpPressure);
+        //if (onGround)
+        //{   
+        //    print("On Ground");
+            
+        //    if (Input.GetButton("Jump"))        //holding jump button
+        //    {
+        //        if(isKeysEnabled)
+        //        {
+        //            if (jumpPressure < maxJumpPressure)
+        //            {
+        //                jumpPressure += Time.deltaTime * 10f;
+        //            }
+        //              else
+        //              {
+        //                 jumpPressure = maxJumpPressure;
+        //              }
+        //            //print(jumpPressure);
+        //            //Debug.Log(jumpPressure);
+        //        }
+                
+        //    }
+        //    //not holding jump button
+        //    else
+        //    {
+        //        //jump
+        //        if (jumpPressure > 0f)
+        //        {
+        //            jumpPressure = jumpPressure + minJump;
+        //            verticalJumpvel = jumpPressure;
+        //            jumpPressure = 0f;
+        //            onGround = false;
+
+        //            isKeysEnabled = false;
+        //        }
+        //        jumpTimeWait();
+        //    }
+        //}
+        //else
+        //{
+        //    // verticalJumpvel -= 9.8f * Time.deltaTime;
+        //    // transform.position += verticalJumpvel * Vector3.up * Time.deltaTime;
+        //    gameObject.GetComponent<Rigidbody>().AddForce(Vector3.up * verticalJumpvel, ForceMode.Impulse);
+        //    onGround = checkOnGround();
+        //}
+    }
+
+    private float getStartingJumpVerticalVelocityFor(float jumpPressure)
+    {
+        return jumpPressure * 0.5F;
     }
 
 
@@ -105,11 +203,26 @@ public class controlScript : MonoBehaviour
         Ray feet = new Ray(transform.position, Vector3.down);
         RaycastHit info;
         if (Physics.Raycast(feet, out info, (float)0.5))
+        {
+            if(info.collider.gameObject.tag=="ground")
+            {
+                onGround = true;
+            }
             return info.collider.gameObject.tag == "ground";
-        Debug.Log("I am here");
+        }
         return false;
     }
 
+    public void jumpTimeWait()
+    {
+        jumpTimer -= Time.deltaTime;
+        if (jumpTimer <= 0)
+        {
+            Debug.Log("The jump wait has expired");
+            isKeysEnabled = true;
+            jumpTimer = 2f;
+        }
+    }
     /// <summary>
     /// Upon key press of [A] the selected character will move left
     /// </summary>
