@@ -11,7 +11,7 @@ public class controlScript : MonoBehaviour
     float _jumpPressure = 0;
     float MAX_PRESSURE = 1;
     private float MIN_JUMP_PRESSURE = 0.1F;
-    private float gravity = 1f;
+    private float gravity = 0.85f;
 
     public float jumpPressure { get { return _jumpPressure; } private set { _jumpPressure = Mathf.Clamp(value, 0, MAX_PRESSURE); } }
 
@@ -56,17 +56,17 @@ public class controlScript : MonoBehaviour
         Debug.Log(jumpTimer + " I am the jump timer " + " Is Keys " + isKeysEnabled + " Is onGround? " + onGround);
         shouldMove();
 
-        if (Input.GetKeyUp(KeyCode.LeftArrow) || Input.GetKeyUp(KeyCode.RightArrow))
+        if (Input.GetKeyUp("a") || Input.GetKeyUp("d"))
         {
             animate.SetBool("IsRunning", false);
         }
 
-        if (Input.GetKeyUp(KeyCode.Keypad1))
+        if (Input.GetKeyUp("1"))
         {
             animate.SetBool("IsPunching", false);
         }
 
-        if (Input.GetKeyUp(KeyCode.Keypad2))
+        if (Input.GetKeyUp("2"))
         {
             animate.SetBool("IsKicking", false);
         }
@@ -131,65 +131,11 @@ public class controlScript : MonoBehaviour
                     transform.position = new Vector3(transform.position.x, defaultHeightForCharacterOnGround, transform.position.z);
                 }
 
-
-
                 break;
-
-
-
-
-
-
-
-
 
         }
 
-        ////print(jumpPressure);
-        //if (onGround)
-        //{   
-        //    print("On Ground");
-            
-        //    if (Input.GetButton("Jump"))        //holding jump button
-        //    {
-        //        if(isKeysEnabled)
-        //        {
-        //            if (jumpPressure < maxJumpPressure)
-        //            {
-        //                jumpPressure += Time.deltaTime * 10f;
-        //            }
-        //              else
-        //              {
-        //                 jumpPressure = maxJumpPressure;
-        //              }
-        //            //print(jumpPressure);
-        //            //Debug.Log(jumpPressure);
-        //        }
-                
-        //    }
-        //    //not holding jump button
-        //    else
-        //    {
-        //        //jump
-        //        if (jumpPressure > 0f)
-        //        {
-        //            jumpPressure = jumpPressure + minJump;
-        //            verticalJumpvel = jumpPressure;
-        //            jumpPressure = 0f;
-        //            onGround = false;
-
-        //            isKeysEnabled = false;
-        //        }
-        //        jumpTimeWait();
-        //    }
-        //}
-        //else
-        //{
-        //    // verticalJumpvel -= 9.8f * Time.deltaTime;
-        //    // transform.position += verticalJumpvel * Vector3.up * Time.deltaTime;
-        //    gameObject.GetComponent<Rigidbody>().AddForce(Vector3.up * verticalJumpvel, ForceMode.Impulse);
-        //    onGround = checkOnGround();
-        //}
+        
     }
 
     private float getStartingJumpVerticalVelocityFor(float jumpPressure)

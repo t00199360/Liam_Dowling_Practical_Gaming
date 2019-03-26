@@ -11,7 +11,7 @@ public class player2Control : MonoBehaviour
     float _jumpPressure = 0;
     float MAX_PRESSURE = 1;
     private float MIN_JUMP_PRESSURE = 0.1F;
-    private float gravity = 1f;
+    private float gravity = 0.85f;
 
     public float jumpPressure { get { return _jumpPressure; } private set { _jumpPressure = Mathf.Clamp(value, 0, MAX_PRESSURE); } }
 
@@ -133,86 +133,10 @@ public class player2Control : MonoBehaviour
                     transform.position = new Vector3(transform.position.x, defaultHeightForCharacterOnGround, transform.position.z);
                 }
 
-
-
                 break;
 
-
-
-
-
-
-
-
-
         }
-
-        ////print(jumpPressure);
-        //if (onGround)
-        //{   
-        //    print("On Ground");
-            
-        //    if (Input.GetKey(KeyCode.Keypad0))      //holding jump button
-        //    {
-        //        //jumpTimeWait();
-        //        if(isKeysEnabled)
-        //        {
-                    
-        //            if (jumpPressure < maxJumpPressure)
-        //            {
-        //                jumpPressure += Time.deltaTime * 10f;
-        //            }
-        //            else
-        //            {
-        //                jumpPressure = maxJumpPressure;
-        //            }
-        //            //print(jumpPressure);
-        //            //Debug.Log(jumpPressure);
-        //        }
-               
-        //    }
-        //    //not holding jump button
-        //    else
-        //    {
-                
-        //        //jump
-        //        if (jumpPressure > 0f)
-        //        {
-        //            jumpPressure = jumpPressure + minJump;
-        //            verticalJumpvel = jumpPressure;
-        //            jumpPressure = 0f;
-        //            onGround = false;
-                    
-        //            isKeysEnabled = false;
-                    
-        //        }
-        //        //if (onGround)
-        //        // {
-        //        //jumpTimer = 4f;
-        //        //isKeysEnabled = true;
-        //        // float jumpWait = 5.0f;                                               //jump attempt that didnt go very well
-        //        //jumpWait -= Time.deltaTime;
-        //        jumpTimeWait();
-        //        //jumpTimer -= Time.deltaTime;
-        //        //if (jumpTimer <= 0)
-        //        //{
-        //        //    Debug.Log("The jump wait has expired");
-        //        //    isKeysEnabled = true;
-        //        //    jumpTimer = 2f;
-        //        //}
-        //        //jumpTimeWait();
-        //        //Debug.log(onGround);
-        //        //}
-                    
-        //    }
-        //}
-        //else
-        //{
-        //    // verticalJumpvel -= 9.8f * Time.deltaTime;
-        //    // transform.position += verticalJumpvel * Vector3.up * Time.deltaTime;
-        //    gameObject.GetComponent<Rigidbody>().AddForce(Vector3.up * verticalJumpvel, ForceMode.Impulse);
-        //    onGround = checkOnGround();
-        //}
+ 
     }
 
     private float getStartingJumpVerticalVelocityFor(float jumpPressure)
