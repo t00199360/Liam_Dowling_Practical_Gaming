@@ -159,16 +159,7 @@ public class controlScript : MonoBehaviour
         return false;
     }
 
-    public void jumpTimeWait()
-    {
-        jumpTimer -= Time.deltaTime;
-        if (jumpTimer <= 0)
-        {
-            Debug.Log("The jump wait has expired");
-            isKeysEnabled = true;
-            jumpTimer = 2f;
-        }
-    }
+  
     /// <summary>
     /// Upon key press of [A] the selected character will move left
     /// </summary>
@@ -256,25 +247,11 @@ public class controlScript : MonoBehaviour
       //  Collision punch = new Collision();
        // OnCollisionEnter(punch);
     }
-
-
-    //private void OnTriggerEnter(Collider other)
-    //{
-    //    Debug.Log(other.gameObject.layer);
-    //}
-
-    //void OnCollisionEnter(Collision collision)
-    //{
-    //    Debug.Log(collision.gameObject.layer);
-    //    //if (collision.gameObject.tag == "Player2")
-    //    //{
-    //    //    Debug.Log("A punch was executed");
-    //    //}
-    //}
-
+    
     private void LaunchAttack(Collider col)
     {
-        Collider[] cols = Physics.OverlapBox(col.bounds.center, col.bounds.extents, col.transform.rotation, LayerMask.GetMask("Hitbox"));
+        Collider[] cols = Physics.OverlapBox(col.bounds.center, col.bounds.extents, col.transform.rotation, LayerMask.GetMask("Hitbox2"));
+        //Collider[] cols = Physics.OverlapBox(col.bounds.center, col.bounds.extents, col.transform.rotation, LayerMask.GetMask("Hitbox"));
         //foreach (Collider c in cols)
         //    Debug.Log(c.name);
 

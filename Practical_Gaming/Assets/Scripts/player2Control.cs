@@ -162,17 +162,7 @@ public class player2Control : MonoBehaviour
 
         return false;
     }
-
-    //public void jumpTimeWait()
-    //{
-    //    jumpTimer -= Time.deltaTime;
-    //    if (jumpTimer <= 0)
-    //    {
-    //        Debug.Log("The jump wait has expired");
-    //        isKeysEnabled = true;
-    //        jumpTimer = 2f;
-    //    }
-    //}
+    
 
     /// <summary>
     /// Upon key press of [A] the selected character will move left
@@ -264,6 +254,7 @@ public class player2Control : MonoBehaviour
     private void LaunchAttack(Collider col)
     {
         Collider[] cols = Physics.OverlapBox(col.bounds.center, col.bounds.extents, col.transform.rotation, LayerMask.GetMask("Hitbox"));
+       // Collider[] cols = Physics.OverlapBox(col.bounds.center, col.bounds.extents, col.transform.rotation, LayerMask.GetMask("Hitbox"));
         //foreach (Collider c in cols)
         //    Debug.Log(c.name);
 
@@ -271,6 +262,8 @@ public class player2Control : MonoBehaviour
         {
             if (c.transform.parent.parent == transform)
                 continue;
+
+           
 
             float damage = 0;
             switch (c.name)

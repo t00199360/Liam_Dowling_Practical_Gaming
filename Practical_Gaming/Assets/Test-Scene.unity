@@ -149,7 +149,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 48980038}
-  m_Layer: 13
+  m_Layer: 14
   m_Name: char_robotGuard_RightHandRing2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -238,7 +238,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 121602537}
-  m_Layer: 13
+  m_Layer: 14
   m_Name: char_robotGuard_RightHandRing1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -296,7 +296,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 129886937}
-  m_Layer: 13
+  m_Layer: 14
   m_Name: char_robotGuard_LeftHandIndex3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -325,7 +325,7 @@ GameObject:
   m_Component:
   - component: {fileID: 137747266}
   - component: {fileID: 137747267}
-  m_Layer: 13
+  m_Layer: 14
   m_Name: char_robotGuard_LeftHand
   m_TagString: 5Damage
   m_Icon: {fileID: 0}
@@ -384,7 +384,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 143289501}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0, y: 0, z: -0.024}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1035156449}
@@ -400,7 +400,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 182857617}
-  m_Layer: 13
+  m_Layer: 14
   m_Name: char_robotGuard_RightHandIndex2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -557,7 +557,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 287449086}
-  m_Layer: 13
+  m_Layer: 14
   m_Name: char_robotGuard_LeftHandIndex2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -586,7 +586,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 294736449}
-  m_Layer: 13
+  m_Layer: 14
   m_Name: char_robotGuard_RightHandMiddle2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -615,7 +615,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 301891551}
-  m_Layer: 13
+  m_Layer: 14
   m_Name: char_robotGuard_RightHandIndex1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -804,7 +804,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 327423763}
-  m_Layer: 13
+  m_Layer: 14
   m_Name: char_robotGuard_LeftHandIndex1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -833,7 +833,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 337644675}
-  m_Layer: 13
+  m_Layer: 14
   m_Name: char_robotGuard_RightToeBase
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -862,7 +862,7 @@ GameObject:
   m_Component:
   - component: {fileID: 371285825}
   - component: {fileID: 371285826}
-  m_Layer: 13
+  m_Layer: 14
   m_Name: char_robotGuard_RightForeArm
   m_TagString: 5Damage
   m_Icon: {fileID: 0}
@@ -933,7 +933,7 @@ GameObject:
   m_Component:
   - component: {fileID: 400323742}
   - component: {fileID: 400323743}
-  m_Layer: 13
+  m_Layer: 14
   m_Name: char_robotGuard_Neck
   m_TagString: 10Damage
   m_Icon: {fileID: 0}
@@ -1017,7 +1017,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 410707675}
-  m_Layer: 13
+  m_Layer: 14
   m_Name: char_robotGuard_skeleton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1046,7 +1046,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 416526401}
-  m_Layer: 13
+  m_Layer: 14
   m_Name: char_robotGuard_RightHandThumb2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1204,7 +1204,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 454693865}
-  m_Layer: 13
+  m_Layer: 14
   m_Name: char_robotGuard_LeftHandRing2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1233,7 +1233,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 460264459}
-  m_Layer: 13
+  m_Layer: 14
   m_Name: char_robotGuard_RightHandPinky1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1583,7 +1583,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 605547101}
-  m_Layer: 13
+  m_Layer: 14
   m_Name: char_robotGuard_Spine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1616,7 +1616,7 @@ GameObject:
   - component: {fileID: 636519954}
   - component: {fileID: 636519956}
   - component: {fileID: 636519955}
-  m_Layer: 13
+  m_Layer: 14
   m_Name: char_robotGuard_helmet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1811,7 +1811,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 666580625}
-  m_Layer: 13
+  m_Layer: 14
   m_Name: char_robotGuard_LeftHandPinky1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1885,7 +1885,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 703486459}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -298, y: 219, z: 0}
+  m_LocalPosition: {x: -298, y: 161, z: 0}
   m_LocalScale: {x: 0.39, y: 0.39, z: 1}
   m_Children:
   - {fileID: 502419593}
@@ -1940,7 +1940,7 @@ GameObject:
   m_Component:
   - component: {fileID: 706254417}
   - component: {fileID: 706254418}
-  m_Layer: 13
+  m_Layer: 14
   m_Name: char_robotGuard_LeftUpLeg
   m_TagString: 10Damage
   m_Icon: {fileID: 0}
@@ -2041,7 +2041,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 763306544}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 290.3, y: 219, z: 0}
+  m_LocalPosition: {x: 290.3, y: 161, z: 0}
   m_LocalScale: {x: 0.39, y: 0.39, z: 1}
   m_Children:
   - {fileID: 1173936277}
@@ -2096,7 +2096,7 @@ GameObject:
   m_Component:
   - component: {fileID: 763390140}
   - component: {fileID: 763390141}
-  m_Layer: 13
+  m_Layer: 14
   m_Name: char_robotGuard_RightArm
   m_TagString: 10Damage
   m_Icon: {fileID: 0}
@@ -2138,7 +2138,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 773531764}
-  m_Layer: 13
+  m_Layer: 14
   m_Name: char_robotGuard_RightHandMiddle1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2196,7 +2196,7 @@ GameObject:
   m_Component:
   - component: {fileID: 793833694}
   - component: {fileID: 793833695}
-  m_Layer: 13
+  m_Layer: 14
   m_Name: char_robotGuard_Hips
   m_TagString: 10Damage
   m_Icon: {fileID: 0}
@@ -2295,7 +2295,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 887857026}
-  m_Layer: 13
+  m_Layer: 14
   m_Name: char_robotGuard_LeftHandPinky3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2352,7 +2352,7 @@ GameObject:
   m_Component:
   - component: {fileID: 925917889}
   - component: {fileID: 925917890}
-  m_Layer: 13
+  m_Layer: 14
   m_Name: char_robotGuard_body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2476,7 +2476,7 @@ GameObject:
   m_Component:
   - component: {fileID: 959630056}
   - component: {fileID: 959630057}
-  m_Layer: 13
+  m_Layer: 14
   m_Name: char_robotGuard_LeftLeg
   m_TagString: 5Damage
   m_Icon: {fileID: 0}
@@ -2519,7 +2519,7 @@ GameObject:
   m_Component:
   - component: {fileID: 959911601}
   - component: {fileID: 959911602}
-  m_Layer: 13
+  m_Layer: 14
   m_Name: char_robotGuard_Head
   m_TagString: 20Damage
   m_Icon: {fileID: 0}
@@ -2560,7 +2560,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 974591606}
-  m_Layer: 13
+  m_Layer: 14
   m_Name: char_robotGuard_LeftHandMiddle2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2618,7 +2618,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1008340309}
-  m_Layer: 13
+  m_Layer: 14
   m_Name: char_robotGuard_RightHandThumb1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2665,7 +2665,7 @@ BoxCollider:
   m_GameObject: {fileID: 1035156445}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -2861,7 +2861,7 @@ BoxCollider:
   m_GameObject: {fileID: 1105126727}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -2992,7 +2992,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1121959261}
-  m_Layer: 13
+  m_Layer: 14
   m_Name: char_robotGuard_RightHandPinky2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3022,7 +3022,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1127126628}
   - component: {fileID: 1127126629}
-  m_Layer: 13
+  m_Layer: 14
   m_Name: char_robotGuard_LeftFoot
   m_TagString: 5Damage
   m_Icon: {fileID: 0}
@@ -3137,7 +3137,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1134120391}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 569, y: 299, z: 0}
+  m_LocalPosition: {x: 453, y: 241, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 763306545}
@@ -3547,7 +3547,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1256936536}
   m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 4.27, y: 3.26, z: -5.88}
+  m_LocalPosition: {x: 4.27, y: 3.76, z: -5.88}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 852361421}
@@ -3620,7 +3620,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1303881471}
-  m_Layer: 13
+  m_Layer: 14
   m_Name: char_robotGuard_RightHandIndex3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3678,7 +3678,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1331880539}
   - component: {fileID: 1331880540}
-  m_Layer: 13
+  m_Layer: 14
   m_Name: char_robotGuard_RightShoulder
   m_TagString: 5Damage
   m_Icon: {fileID: 0}
@@ -3719,7 +3719,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1333011471}
-  m_Layer: 13
+  m_Layer: 14
   m_Name: char_robotGuard_LeftHandThumb2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3776,7 +3776,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1382583343}
-  m_Layer: 13
+  m_Layer: 14
   m_Name: char_robotGuard_LeftHandMiddle3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3876,7 +3876,7 @@ BoxCollider:
   m_GameObject: {fileID: 1383189504}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -3962,7 +3962,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1389454608}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 569, y: 299, z: 0}
+  m_LocalPosition: {x: 453, y: 241, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 703486460}
@@ -3983,7 +3983,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1390778882}
   - component: {fileID: 1390778883}
-  m_Layer: 13
+  m_Layer: 14
   m_Name: char_robotGuard_LeftArm
   m_TagString: 10Damage
   m_Icon: {fileID: 0}
@@ -4156,7 +4156,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1499332984}
-  m_Layer: 13
+  m_Layer: 14
   m_Name: char_robotGuard_RightHandRing3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4184,7 +4184,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1509214305}
-  m_Layer: 13
+  m_Layer: 14
   m_Name: MyColliders
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4427,7 +4427,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1613030991}
-  m_Layer: 13
+  m_Layer: 14
   m_Name: char_robotGuard_RightHandMiddle3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4456,7 +4456,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1617849060}
   - component: {fileID: 1617849061}
-  m_Layer: 13
+  m_Layer: 14
   m_Name: char_robotGuard_RightUpLeg
   m_TagString: 10Damage
   m_Icon: {fileID: 0}
@@ -4499,7 +4499,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1634348474}
   - component: {fileID: 1634348475}
-  m_Layer: 13
+  m_Layer: 14
   m_Name: char_robotGuard_LeftForeArm
   m_TagString: 5Damage
   m_Icon: {fileID: 0}
@@ -4741,7 +4741,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1716622627}
   - component: {fileID: 1716622628}
-  m_Layer: 13
+  m_Layer: 14
   m_Name: char_robotGuard_RightHand
   m_TagString: 5Damage
   m_Icon: {fileID: 0}
@@ -4833,7 +4833,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1793829270}
   - component: {fileID: 1793829271}
-  m_Layer: 13
+  m_Layer: 14
   m_Name: char_robotGuard_RightFoot
   m_TagString: 5Damage
   m_Icon: {fileID: 0}
@@ -4874,7 +4874,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1797475575}
-  m_Layer: 13
+  m_Layer: 14
   m_Name: char_robotGuard_RightHandPinky3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4902,7 +4902,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1828060598}
-  m_Layer: 13
+  m_Layer: 14
   m_Name: char_robotGuard_LeftHandPinky2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5061,7 +5061,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1855316992}
-  m_Layer: 13
+  m_Layer: 14
   m_Name: char_robotGuard_LeftHandThumb1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5162,7 +5162,7 @@ BoxCollider:
   m_GameObject: {fileID: 1861315098}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -5174,7 +5174,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1863776780}
-  m_Layer: 13
+  m_Layer: 14
   m_Name: char_robotGuard_LeftHandRing3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5202,7 +5202,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1950236273}
-  m_Layer: 13
+  m_Layer: 14
   m_Name: char_robotGuard_LeftToeBase
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5274,7 +5274,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1957477584}
   - component: {fileID: 1957477585}
-  m_Layer: 13
+  m_Layer: 14
   m_Name: char_robotGuard_LeftShoulder
   m_TagString: 5Damage
   m_Icon: {fileID: 0}
@@ -5344,7 +5344,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1973424338}
-  m_Layer: 13
+  m_Layer: 14
   m_Name: char_robotGuard_LeftHandRing1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5443,7 +5443,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 2035043544}
-  m_Layer: 13
+  m_Layer: 14
   m_Name: char_robotGuard_LeftHandMiddle1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5502,7 +5502,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2075146948}
   - component: {fileID: 2075146949}
-  m_Layer: 13
+  m_Layer: 14
   m_Name: char_robotGuard_RightLeg
   m_TagString: 5Damage
   m_Icon: {fileID: 0}
