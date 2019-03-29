@@ -16,6 +16,7 @@ TagManager:
   - 5Damage
   - 10Damage
   - 20Damage
+  - Fire
   layers:
   - Default
   - TransparentFX
@@ -35,7 +36,7 @@ TagManager:
   - Pushbox
   - player2RadiusForStrike
   - player1RadiusForStrike
-  - 
+  - FireLayer
   - 
   - 
   - 
