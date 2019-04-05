@@ -22,14 +22,16 @@ public class characterAnimation : MonoBehaviour
     private bool kicking;
 
     // Use this for initialization
-    void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    void Start()
+    {
+
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+
+    }
 
     /// <summary>
     /// There will need to be an idle animation for the characters.

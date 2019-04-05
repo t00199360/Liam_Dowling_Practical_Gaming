@@ -14,14 +14,16 @@ public class characterSelect : MonoBehaviour
     private float power;
 
     // Use this for initialization
-    void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    void Start()
+    {
+
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+
+    }
 
     /// <summary>
     /// Assigns the power and health values depedning on the class of the character chosen

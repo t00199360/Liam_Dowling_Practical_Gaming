@@ -84,9 +84,7 @@ public class player2Control : MonoBehaviour
                     iamCurrently = JumpState.Charging;
                     jumpPressure = 0;
                 }
-
-
-
+                
                 break;
 
             case JumpState.Charging:
@@ -113,12 +111,7 @@ public class player2Control : MonoBehaviour
                 transform.position += verticalJumpvel * Vector3.up;
                 if (verticalJumpvel < 0)
                     iamCurrently = JumpState.Falling;
-
-
-
-
-
-
+                
                 break;
 
 
@@ -251,18 +244,34 @@ public class player2Control : MonoBehaviour
     }
 
 
-    private void LaunchAttack(Collider col)
+    private void LaunchAttack(Collider col)                     
     {
         Collider[] cols = Physics.OverlapBox(col.bounds.center, col.bounds.extents, col.transform.rotation, LayerMask.GetMask("Hitbox"));
-       // Collider[] cols = Physics.OverlapBox(col.bounds.center, col.bounds.extents, col.transform.rotation, LayerMask.GetMask("Hitbox"));
-        //foreach (Collider c in cols)
-        //    Debug.Log(c.name);
+       
 
         foreach (Collider c in cols)
         {
             if (c.transform.parent.parent == transform)
                 continue;
+            /*
+             switch (c.tag)
+             {
+             case "HeadP1":
+                damage = 15;
+                break;
+            
+            case "TorsoP1":
+                damage = 10;
+                break;
 
+            case "armsP1":
+                damage = 5;
+                break;
+             
+            case "legsP1"
+                damage = 3;
+                break;
+             */
            
 
             float damage = 0;
@@ -273,6 +282,7 @@ public class player2Control : MonoBehaviour
 
                  
                     break;
+                    
 
                 case "char_robotGuard_Hips":
                     damage = 10;

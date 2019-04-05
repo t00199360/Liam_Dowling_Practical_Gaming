@@ -29,6 +29,8 @@ GameObject:
   - component: {fileID: 11415228}
   - component: {fileID: 8299452}
   - component: {fileID: 8285056}
+  - component: {fileID: 114825918676865172}
+  - component: {fileID: 114222713105810240}
   m_Layer: 0
   m_Name: Firebolt
   m_TagString: Untagged
@@ -7313,3 +7315,29 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 141530}
   m_IsPrefabParent: 1
+--- !u!114 &114222713105810240
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 141530}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83372c439c69b1244b8e09490c467653, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Volume: 0
+  myMusic: {fileID: 8285056}
+--- !u!114 &114825918676865172
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 141530}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83372c439c69b1244b8e09490c467653, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Volume: 0
+  myMusic: {fileID: 8299452}

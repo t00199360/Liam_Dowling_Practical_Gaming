@@ -14,14 +14,16 @@ public class attackScript : MonoBehaviour
     private bool counter;
 
     // Use this for initialization
-    void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    void Start()
+    {
+
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+
+    }
 
     /// <summary>
     /// Upon key press of [B], the character wll execute a quick punch at medium height
@@ -79,3 +81,5 @@ public class attackScript : MonoBehaviour
         throw new System.NotImplementedException();
     }
 }
+
+
