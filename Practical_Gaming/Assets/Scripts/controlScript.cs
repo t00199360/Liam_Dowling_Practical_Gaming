@@ -289,6 +289,7 @@ public class controlScript : MonoBehaviour
 
                 default:
                     Debug.Log("Unable to identify body part, make sure the name matches the switch case");
+                    damage = 5;
                     break;
             }
 

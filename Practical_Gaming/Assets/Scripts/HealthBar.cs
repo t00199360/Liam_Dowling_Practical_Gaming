@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class HealthBar : MonoBehaviour
@@ -29,6 +30,7 @@ public class HealthBar : MonoBehaviour
         if (hitpoint < 0)
         {
             hitpoint = 0;
+            SceneManager.LoadScene("GameOver");
             Debug.Log("Dead!");
         }
 
