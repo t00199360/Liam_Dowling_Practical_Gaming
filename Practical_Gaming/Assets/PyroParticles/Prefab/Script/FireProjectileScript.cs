@@ -70,6 +70,8 @@ namespace DigitalRuby.PyroParticles
         {
             if (collided)
             {
+                float damage = 10;
+                SendMessageUpwards("TakeDamage", damage);
                 // already collided, don't do anything
                 return;
             }
