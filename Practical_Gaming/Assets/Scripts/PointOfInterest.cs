@@ -3,29 +3,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PointOfInterest : MonoBehaviour
+public class PointOfInterest : Subject
 {
 
-    public static event Action<PointOfInterest>OnPointOfInterestEntered;
+    //public static event Action<PointOfInterest>OnPointOfInterestEntered;
 
     [SerializeField]
-    private string _poiName;
-    public string PoiName
-    {
-        get
-        {
-            return _poiName;
-        }
-    }
+    private string poiName;
+    
     // Use this for initialization
     private void OnTriggerEnter(Collider other)
     {
-        if (OnPointOfInterestEntered != null)
-            OnPointOfInterestEntered(this);
-    }
-
-    public void OnDeath()
-    {
-        //CHECKPOINT
+        Notify(poiName, NotificationType.AchievementUnlocked);
     }
 }

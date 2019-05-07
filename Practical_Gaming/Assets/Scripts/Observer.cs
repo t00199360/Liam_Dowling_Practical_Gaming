@@ -5,7 +5,7 @@ using UnityEngine.iOS;
 
 public abstract class Observer : MonoBehaviour      //reference https://www.youtube.com/watch?v=Yy7Dt2usGy0
 {
-    public abstract void onNotify(object value, NotificationType notificationType);
+    public abstract void OnNotify(object value, NotificationType notificationType);
 }
 
 public abstract class Subject : MonoBehaviour
@@ -20,6 +20,6 @@ public abstract class Subject : MonoBehaviour
     public void Notify (object value, NotificationType notificationType)
     {
         foreach (var observer in _observers)
-            observer.onNotify(value, notificationType);
+            observer.OnNotify(value, notificationType);
     }
 }
