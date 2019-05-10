@@ -2331,7 +2331,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 703486459}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -298, y: 55.5, z: 0}
+  m_LocalPosition: {x: -298, y: 83, z: 0}
   m_LocalScale: {x: 0.39, y: 0.39, z: 1}
   m_Children:
   - {fileID: 502419593}
@@ -2545,7 +2545,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 763306544}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 290.3, y: 55.5, z: 0}
+  m_LocalPosition: {x: 290.3, y: 83, z: 0}
   m_LocalScale: {x: 0.39, y: 0.39, z: 1}
   m_Children:
   - {fileID: 1173936277}
@@ -3830,7 +3830,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1134120391}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -982.54443, y: -3123.9646, z: 0}
+  m_LocalPosition: {x: -768.4419, y: -3053.452, z: 0}
   m_LocalScale: {x: 2.5641026, y: 2.5641026, z: 1}
   m_Children:
   - {fileID: 763306545}
@@ -4146,7 +4146,6 @@ GameObject:
   - component: {fileID: 1256936540}
   - component: {fileID: 1256936538}
   - component: {fileID: 1256936537}
-  - component: {fileID: 1256936539}
   - component: {fileID: 1256936543}
   - component: {fileID: 1256936544}
   m_Layer: 10
@@ -4187,19 +4186,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentHealthBar: {fileID: 1173936278}
   ratioText: {fileID: 315217159}
---- !u!114 &1256936539
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1256936536}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d9ba3e9d4d3b72943970b4d19d0d752a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  firepoint2: {fileID: 852361421}
-  bulletPrefab: {fileID: 141530, guid: 369eee557c4d41c479225bf744fa6a5f, type: 2}
 --- !u!54 &1256936540
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -4725,7 +4711,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1389454608}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -982.54443, y: -3123.9646, z: 0}
+  m_LocalPosition: {x: -768.4419, y: -3053.452, z: 0}
   m_LocalScale: {x: 2.5641026, y: 2.5641026, z: 1}
   m_Children:
   - {fileID: 703486460}
@@ -5666,6 +5652,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   firepoint: {fileID: 1582262633}
   bulletPrefab: {fileID: 141530, guid: 369eee557c4d41c479225bf744fa6a5f, type: 2}
+  firepoint2: {fileID: 852361421}
+  bulletPrefab2: {fileID: 141530, guid: 369eee557c4d41c479225bf744fa6a5f, type: 2}
 --- !u!64 &1714568063
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -6322,7 +6310,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1875720544}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -982.54443, y: -3123.9646, z: 0}
+  m_LocalPosition: {x: -768.4419, y: -3053.452, z: 0}
   m_LocalScale: {x: 2.5641026, y: 2.5641026, z: 1}
   m_Children:
   - {fileID: 2134679612}
@@ -7212,7 +7200,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2134679611}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1, y: 55.5, z: 0}
+  m_LocalPosition: {x: -1, y: 83, z: 0}
   m_LocalScale: {x: 0.4421342, y: 0.49533847, z: 1}
   m_Children:
   - {fileID: 800419721}

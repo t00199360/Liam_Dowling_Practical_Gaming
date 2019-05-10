@@ -19,7 +19,7 @@ public class HealthBar : MonoBehaviour
 
     private void UpdateHealthBar()
     {
-        float ratio = hitpoint / maxHitpoint; //returns a value between 0 + 1 as hitpoint cannot exceed maxHitPoint
+        float ratio = hitpoint / maxHitpoint;               //returns a value between 0 + 1 as hitpoint cannot exceed maxHitPoint
         currentHealthBar.rectTransform.localScale = new Vector3(ratio, 1, 1);
         ratioText.text = (ratio * 100).ToString("0") + '%';
     }

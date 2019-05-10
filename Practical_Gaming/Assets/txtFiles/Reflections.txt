@@ -1,0 +1,6 @@
+﻿In hindsight, I was extremely ambitious with my expectations for my game at the start of the year.
+In some ways I achieved my goals but in others i fell dreadfully short. I didnt manage to implement the character select that I wanted to have.
+I didn't have time to fully implement the achievement system that I wanted to but i feel like with a bit more time I very easily could finish it.
+It is functional in its current state but just not ideal.
+I feel i was however successful in implementing a lot of my desired features and i feel like as a game it is playable and functional despite certain shortcomings. 
+My old class diagram is available in previous github pushes but i have removed it in this push as it is just so far off the mark its ridiculous.

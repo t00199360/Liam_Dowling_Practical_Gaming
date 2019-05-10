@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-namespace DigitalRuby.PyroParticles
+namespace DigitalRuby.PyroParticles         //This script came with the asset downloaded from the store
 {
     /// <summary>
     /// Handle collision of a fire projectile
@@ -68,13 +68,14 @@ namespace DigitalRuby.PyroParticles
 
         public void HandleCollision(GameObject obj, Collision c)
         {
-            if (collided)
-            {
-                float damage = 10;
-                SendMessageUpwards("TakeDamage", damage);
-                // already collided, don't do anything
-                return;
-            }
+            //if (collided)
+            //{
+            //    float damage = 10;
+                
+            //    //SendMessageUpwards("TakeDamage", damage);
+            //    // already collided, don't do anything
+            //    return;
+            //}
 
             // stop the projectile
             collided = true;
